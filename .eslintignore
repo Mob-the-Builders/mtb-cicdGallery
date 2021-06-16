@@ -1,0 +1,6 @@
+/server/public/javascript/*
+wdio.conf.js
+webpack.config.js
+/server/config
+**/*.spec.js
+**/*.e2e.js
