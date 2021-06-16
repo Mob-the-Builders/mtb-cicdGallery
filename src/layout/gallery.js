@@ -36,8 +36,8 @@ const createCard = (image, description) => {
   return article;
 }
 
-const imageList = input => {
-return fetchImages(input)
+const imageList = (input, id) => {
+return fetchImages(input, id)
   .then(res => {
     const section = document.createElement('section');
     section.id = 'cities';

@@ -30,6 +30,28 @@ main section{
   row-gap: 2rem;
 }
 
+
+//this is very bad and dirty, please help fix !
+#value {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+}
+
+.suggestion {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  display: none;
+}
+
+section:focus-within > .suggestion{
+  display: inline;
+  // not sure how to fix this, i want to make it like a drop down menu
+}
+
 .card {
   background-color: transparent;
   width: 300px;
