@@ -1,10 +1,26 @@
 $font-size: 1rem;
 $font-color: lch(53 105 40);
 
+body {
+  margin: 0;
+}
+
 html {
   font-size: $font-size;
   color: $font-color;
   &_element{
       color:blue;
   }
+} 
+
+.navbar {
+  height: 10vh;
+  border: 1px solid black;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  &__logo{
+    height: 100%;
+  }
 }
+
