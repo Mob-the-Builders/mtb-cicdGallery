@@ -24,19 +24,17 @@ html {
   }
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 main section{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2rem;
-}
-
-
-//this is very bad and dirty, please help fix !
-#value {
-  grid-column-start: 1;
-  grid-column-end: span 1;
-  grid-row-start: 1;
-  grid-row-end: span 1;
 }
 
 .suggestion {
@@ -47,10 +45,10 @@ main section{
   display: none;
 }
 
-section:focus-within > .suggestion{
-  display: inline;
-  // not sure how to fix this, i want to make it like a drop down menu
-}
+// section:focus-within > .suggestion{
+//   display: inline;
+//   // not sure how to fix this, i want to make it like a drop down menu
+// }
 
 .card {
   background-color: transparent;
