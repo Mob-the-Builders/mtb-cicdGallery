@@ -49,12 +49,4 @@ return fetchImages(input, id)
   });
 }
 
-// const gallery = document.createElement('li')
-
 export { imageList };
-
-
-
-
-// const imageList = fetchImages()
-//   .then(res => res;)
