@@ -3,5 +3,5 @@ test('Make me pass - green', () => {
 });
 
 test('Make me fail - red', () => {
-  expect(3).toBe(1);
+  expect(3).toBe(3);
 });
