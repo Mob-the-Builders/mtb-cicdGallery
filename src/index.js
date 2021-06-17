@@ -4,7 +4,7 @@ import imageList from './layout/gallery';
 import createSearchbar from './layout/input';
 import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
-
+// I am just a comment :D
 // Create header node
 const header = document.createElement('header');
 header.appendChild(navbar);
