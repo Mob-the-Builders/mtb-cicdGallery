@@ -27,3 +27,5 @@ jobs:
         run: npm install
       - name: Lint
         run: npm run lint
+      - name: Jest-test
+        run: npm run test
