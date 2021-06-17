@@ -1,5 +1,6 @@
 const buttons = () => {
   const section = document.createElement('section');
+  section.className = 'prev-next__container-flex'
   const prev = document.createElement('button');
   const next = document.createElement('button');
   prev.id = 'prev';

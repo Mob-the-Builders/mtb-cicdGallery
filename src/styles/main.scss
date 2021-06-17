@@ -38,7 +38,7 @@ main{
   display: flex;
 }
 
-main section{
+.gallery__container-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2rem;
@@ -103,4 +103,10 @@ section:focus-within > .suggestion{
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+}
+
+.prev-next__container-flex{
+  display: flex;
+
+  margin-top: 2rem;
 }

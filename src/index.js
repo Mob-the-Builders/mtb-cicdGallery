@@ -5,36 +5,34 @@ import createSearchbar from './layout/input';
 import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
 import { clearGalleryContainer } from './helpers/clear';
-// Create header node
 
 // Create main node
 const main = document.createElement('main');
 
 // Append search bar and buttons to main
 main.appendChild(createSearchbar());
-main.appendChild(buttons());
 
 // When we have time rename the imageList
 const section = document.createElement('section');
 section.id = 'searchResult';
 main.appendChild(section);
-// imageList('')
-//   .then(section => main.appendChild(section));
+
+//Create the gallery container
+const galleryContainer = document.createElement('section');
+galleryContainer.className = 'gallery__container-grid';
 
 // Append nodes to the DOM
 const app = document.querySelector('#root');
 app.append(navbar, main);
+main.appendChild(galleryContainer);
+main.appendChild(buttons());
 
 // Input search
 const submitSearch = () => {
   const { value } = document.getElementById('value');
   localStorage.setItem('lastSearch', value);
-  clearGalleryContainer(main);
-
-  imageList(value).then(res => {
-    main.appendChild(res);
-  });
-
+  clearGalleryContainer();
+  imageList(value, 1, galleryContainer);
   generateSuggestions();
 };
 
@@ -62,11 +60,8 @@ next.addEventListener('click', () => {
 
   if (lastPage >= currentPage) {
     const nextPage = currentPage + 1;
-    clearGalleryContainer(main);
-    imageList(currentSearch, nextPage)
-      .then(res => {
-        main.appendChild(res);
-      });
+    clearGalleryContainer();
+    imageList(currentSearch, nextPage, galleryContainer);
   }
 });
 
@@ -75,10 +70,7 @@ prev.addEventListener('click', () => {
   const currentPage = parseInt(localStorage.getItem('currentPage'), 10);
   if (currentPage >= 2) {
     const prevPage = currentPage - 1;
-    clearGalleryContainer(main);
-    imageList(currentSearch, prevPage)
-      .then(res => {
-        main.appendChild(res);
-      });
+    clearGalleryContainer();
+    imageList(currentSearch, prevPage, galleryContainer)
   }
 });

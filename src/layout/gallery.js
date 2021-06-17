@@ -36,15 +36,14 @@ const createCard = (image, description) => {
   return article;
 };
 
-const imageList = (input, id) => fetchImages(input, id)
+const imageList = (input, id, gallery) => fetchImages(input, id)
   .then(res => {
     const section = document.createElement('section');
     section.className = 'gallery__container-grid';
     res.forEach(element => {
       const card = createCard(element.urls.small, element.alt_description);
-      section.appendChild(card);
+      gallery.appendChild(card);
     });
-    return section;
   });
 
 export default imageList;
