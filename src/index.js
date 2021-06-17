@@ -11,15 +11,20 @@ header.appendChild(navbar);
 
 // Create main node
 const main = document.createElement('main');
-// When we have time rename the imageList
-const section = document.createElement('section');
-main.appendChild(section);
-// imageList('')
-//   .then(section => main.appendChild(section));
+
+
 
 // Append search bar and buttons to main
 main.appendChild(createSearchbar());
 main.appendChild(buttons());
+
+
+// When we have time rename the imageList
+const section = document.createElement('section');
+section.id = 'searchResult';
+main.appendChild(section);
+// imageList('')
+//   .then(section => main.appendChild(section));
 
 // Append nodes to the DOM
 const app = document.querySelector('#root');
