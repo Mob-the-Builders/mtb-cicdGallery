@@ -12,12 +12,9 @@ header.appendChild(navbar);
 // Create main node
 const main = document.createElement('main');
 
-
-
 // Append search bar and buttons to main
 main.appendChild(createSearchbar());
 main.appendChild(buttons());
-
 
 // When we have time rename the imageList
 const section = document.createElement('section');
