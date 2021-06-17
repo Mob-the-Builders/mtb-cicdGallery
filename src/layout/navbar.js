@@ -11,4 +11,3 @@ navbar.appendChild(img);
 module.exports = { navbar };
 
 // export default navbar;
-    

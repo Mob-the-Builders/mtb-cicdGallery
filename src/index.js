@@ -1,13 +1,11 @@
 import './styles/main.scss';
-import navbar from './layout/navbar';
+import { navbar } from './layout/navbar';
 import imageList from './layout/gallery';
 import createSearchbar from './layout/input';
 import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
-// I am just a comment :D
+
 // Create header node
-const header = document.createElement('header');
-header.appendChild(navbar);
 
 // Create main node
 const main = document.createElement('main');
@@ -25,7 +23,7 @@ main.appendChild(section);
 
 // Append nodes to the DOM
 const app = document.querySelector('#root');
-app.append(header, main);
+app.append(navbar, main);
 
 // Input search
 const submitSearch = () => {
