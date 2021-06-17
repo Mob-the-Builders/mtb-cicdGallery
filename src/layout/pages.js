@@ -1,8 +1,4 @@
 
-const pagination = () => {
-
-}
-
 const buttons = () => {
   const section = document.createElement('section');
   const prev = document.createElement('button');

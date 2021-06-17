@@ -1,15 +1,9 @@
 import './styles/main.scss';
 import { navbar } from './layout/navbar';
 import { imageList } from './layout/gallery';
-import { input } from './layout/input';
-import { suggestions } from './layout/suggestions';
+import { createSearchbar } from './layout/input';
+import { generateSuggestions } from './layout/suggestions';
 import { buttons } from './layout/pages';
-
-localStorage.setItem('lastSearch', 'london');
-
-const app = document.querySelector('#root');
-
-// imageList.then(res => console.log(res));
 
 // Create header node
 const header = document.createElement('header');
@@ -17,40 +11,39 @@ header.appendChild(navbar);
 
 // Create main node
 const main = document.createElement('main');
-imageList('london').then(res => main.appendChild(res));
+// When we have time rename the imageList
+const section = document.createElement('section')
+main.appendChild(section);
+// imageList('') 
+//   .then(section => main.appendChild(section));
 
-main.appendChild(input());
+// Append search bar and buttons to main
+main.appendChild(createSearchbar());
 main.appendChild(buttons());
 
 // Append nodes to the DOM
+const app = document.querySelector('#root');
 app.append(header, main);
 
-// local storage
-
 // Input search
-
 const submitSearch = () => {
   const value = document.getElementById('value').value;
   localStorage.setItem('lastSearch', value);
   main.removeChild(main.childNodes[2]);
-  //main.childNodes[1].innerHTML = '';
-  // This is the gateway to get a search going
-  // pagination would need to be a para to this searchyboi
-  // prolly need default value 
-  // need to create the buttons as well on load
-  // make sure not to delete the buttons 
-  // buttons needs to have onClick imageList or something and pass the page as 2nd para.
+
   imageList(value).then(res => {
     main.appendChild(res)
   });
-  suggestions();
+  generateSuggestions();
 }
 
-// Adds listeners for click and pressing the enter key
+// Adds listeners for search bar
 const submitClick = document.getElementById('submit');
 const submitEnter = document.getElementById('value');
 
+// Add listener for click
 submitClick.addEventListener('click', () => submitSearch());
+// Add listener for enter
 submitEnter.addEventListener('keydown', () => {
   if (event.keyCode === 13) {
     submitSearch();
@@ -66,9 +59,8 @@ next.addEventListener('click', () => {
   const currentPage = parseInt(localStorage.getItem('currentPage'));
   const lastPage = parseInt(localStorage.getItem('maxPage'));
 
-  if ( lastPage >= currentPage) {
+  if (lastPage >= currentPage) {
     const nextPage = currentPage + 1;
-  
   
     main.removeChild(main.childNodes[2]);
     imageList(currentSearch, nextPage)
@@ -92,8 +84,3 @@ prev.addEventListener('click', () => {
     });
   }
 })
-
-
-
- 
-

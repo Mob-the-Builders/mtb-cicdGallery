@@ -1,4 +1,4 @@
-const loop = (nodes, lastSearch) => {
+const isValidSearch = (nodes, lastSearch) => {
   let output = true;
   nodes.forEach(node => {
     if (node.innerHTML === lastSearch) {
@@ -8,17 +8,14 @@ const loop = (nodes, lastSearch) => {
   return output;
 };
 
-
-const suggestions = () => {
+const generateSuggestions = () => {
   const searchBar = document.getElementById('searchBar');
   const lastSearch = localStorage.getItem('lastSearch');
   const div = document.createElement('div');
   div.className = 'suggestion';
   div.innerHTML = lastSearch; 
-
-  const test = loop(searchBar.childNodes, lastSearch);
-
-  if (test) {
+  
+  if (isValidSearch(searchBar.childNodes, lastSearch)) {
     if (searchBar.childNodes.length >= 6) {
       searchBar.removeChild(searchBar.childNodes[2]);
     }
@@ -26,4 +23,4 @@ const suggestions = () => {
   }
 }
 
-export { suggestions }; 
+export { generateSuggestions }; 
