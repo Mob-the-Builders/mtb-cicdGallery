@@ -56,6 +56,7 @@ submitEnter.addEventListener('keydown', event => {
 const next = document.getElementById('next');
 const prev = document.getElementById('prev');
 
+
 next.addEventListener('click', () => {
   const currentSearch = localStorage.getItem('lastSearch');
   const currentPage = parseInt(localStorage.getItem('currentPage'), 10);
