@@ -27,4 +27,4 @@ const generateSuggestions = () => {
   }
 };
 
-export default generateSuggestions };
+export default generateSuggestions;

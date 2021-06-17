@@ -17,7 +17,7 @@ const section = document.createElement('section');
 section.id = 'searchResult';
 main.appendChild(section);
 
-//Create the gallery container
+// Create the gallery container
 const galleryContainer = document.createElement('section');
 galleryContainer.className = 'gallery__container-grid';
 
@@ -71,6 +71,6 @@ prev.addEventListener('click', () => {
   if (currentPage >= 2) {
     const prevPage = currentPage - 1;
     clearGalleryContainer();
-    imageList(currentSearch, prevPage, galleryContainer)
+    imageList(currentSearch, prevPage, galleryContainer);
   }
 });
