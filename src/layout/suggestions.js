@@ -1,3 +1,7 @@
+/*
+  Make a suggestion container that sits below thee searchBar
+*/
+
 const isValidSearch = (nodes, lastSearch) => {
   let output = true;
   nodes.forEach(node => {
@@ -23,4 +27,4 @@ const generateSuggestions = () => {
   }
 };
 
-export default generateSuggestions;
+export default generateSuggestions };
