@@ -27,7 +27,15 @@ beforeAll(() => {
   navbar = require('./src/layout/navbar').navbar;
 });
 
-describe('Something', () =>  {
+describe('DOM Tester', () =>  {
+  test('Check if header has correct class', () => {
+    const header = global.document.createElement('header');
+    header.appendChild(navbar);
+    const app = document.querySelector('#root');
+    app.append(header);
+    expect(navbar.classList.contains('navbar')).toBe(true);
+  });
+
   test('Check if header has correct class', () => {
     const header = global.document.createElement('header');
     header.appendChild(navbar);
