@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --exit './{,!(node_modules)/**}/*.spec.js'",
+    "test": "jest",
     "start": "webpack serve",
     "lint": "eslint '**/*.js'",
     "lint-watch": "nodemon --exec 'npm run lint --silent'",
