@@ -15,12 +15,14 @@ html {
 
 .navbar {
   height: 10vh;
-  border: 1px solid black;
   position: sticky;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   &__logo{
     height: 100%;
+    border-radius: 50%;
   }
 }
 
@@ -29,6 +31,7 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .search-bar__container-flex{

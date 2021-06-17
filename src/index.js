@@ -4,7 +4,7 @@ import imageList from './layout/gallery';
 import createSearchbar from './layout/input';
 import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
-
+import { clearGalleryContainer } from './helpers/clear';
 // Create header node
 
 // Create main node
@@ -29,11 +29,12 @@ app.append(navbar, main);
 const submitSearch = () => {
   const { value } = document.getElementById('value');
   localStorage.setItem('lastSearch', value);
-  main.removeChild(main.childNodes[2]);
+  clearGalleryContainer(main);
 
   imageList(value).then(res => {
     main.appendChild(res);
   });
+
   generateSuggestions();
 };
 
@@ -61,8 +62,7 @@ next.addEventListener('click', () => {
 
   if (lastPage >= currentPage) {
     const nextPage = currentPage + 1;
-
-    main.removeChild(main.childNodes[2]);
+    clearGalleryContainer(main);
     imageList(currentSearch, nextPage)
       .then(res => {
         main.appendChild(res);
@@ -73,11 +73,9 @@ next.addEventListener('click', () => {
 prev.addEventListener('click', () => {
   const currentSearch = localStorage.getItem('lastSearch');
   const currentPage = parseInt(localStorage.getItem('currentPage'), 10);
-
   if (currentPage >= 2) {
     const prevPage = currentPage - 1;
-
-    main.removeChild(main.childNodes[2]);
+    clearGalleryContainer(main);
     imageList(currentSearch, prevPage)
       .then(res => {
         main.appendChild(res);

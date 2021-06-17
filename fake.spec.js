@@ -27,7 +27,7 @@ beforeAll(() => {
   navbar = require('./src/layout/navbar').navbar;
 });
 
-describe('DOM Tester', () =>  {
+describe('Testing header', () =>  {
   test('Check if header has correct class', () => {
     const header = global.document.createElement('header');
     header.appendChild(navbar);
