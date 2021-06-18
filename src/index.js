@@ -6,6 +6,7 @@ import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
 import { clearGalleryContainer } from './helpers/clear';
 
+
 // Create main node
 const main = document.createElement('main');
 
