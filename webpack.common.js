@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: {
@@ -11,16 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'main.bundle.js',
-  },
-
-  mode: 'development',
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, './dist'),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080,
+    clean: true,
   },
 
   plugins: [
@@ -31,6 +23,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new Dotenv(),
   ],
 
   module: {
@@ -58,4 +51,4 @@ module.exports = {
       },
     ],
   },
-}
+};

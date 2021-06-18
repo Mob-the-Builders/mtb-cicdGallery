@@ -1,41 +1,38 @@
 import './styles/main.scss';
-import navbar from './layout/navbar';
+import { navbar } from './layout/navbar';
 import imageList from './layout/gallery';
 import createSearchbar from './layout/input';
 import generateSuggestions from './layout/suggestions';
 import buttons from './layout/pages';
-// I am just a comment :D
-// Create header node
-const header = document.createElement('header');
-header.appendChild(navbar);
+import { clearGalleryContainer } from './helpers/clear';
 
 // Create main node
 const main = document.createElement('main');
 
 // Append search bar and buttons to main
 main.appendChild(createSearchbar());
-main.appendChild(buttons());
 
 // When we have time rename the imageList
 const section = document.createElement('section');
 section.id = 'searchResult';
 main.appendChild(section);
-// imageList('')
-//   .then(section => main.appendChild(section));
+
+// Create the gallery container
+const galleryContainer = document.createElement('section');
+galleryContainer.className = 'gallery__container-grid';
 
 // Append nodes to the DOM
 const app = document.querySelector('#root');
-app.append(header, main);
+app.append(navbar, main);
+main.appendChild(galleryContainer);
+main.appendChild(buttons());
 
 // Input search
 const submitSearch = () => {
   const { value } = document.getElementById('value');
   localStorage.setItem('lastSearch', value);
-  main.removeChild(main.childNodes[2]);
-
-  imageList(value).then(res => {
-    main.appendChild(res);
-  });
+  clearGalleryContainer();
+  imageList(value, 1, galleryContainer);
   generateSuggestions();
 };
 
@@ -63,26 +60,17 @@ next.addEventListener('click', () => {
 
   if (lastPage >= currentPage) {
     const nextPage = currentPage + 1;
-
-    main.removeChild(main.childNodes[2]);
-    imageList(currentSearch, nextPage)
-      .then(res => {
-        main.appendChild(res);
-      });
+    clearGalleryContainer();
+    imageList(currentSearch, nextPage, galleryContainer);
   }
 });
 
 prev.addEventListener('click', () => {
   const currentSearch = localStorage.getItem('lastSearch');
   const currentPage = parseInt(localStorage.getItem('currentPage'), 10);
-
   if (currentPage >= 2) {
     const prevPage = currentPage - 1;
-
-    main.removeChild(main.childNodes[2]);
-    imageList(currentSearch, prevPage)
-      .then(res => {
-        main.appendChild(res);
-      });
+    clearGalleryContainer();
+    imageList(currentSearch, prevPage, galleryContainer);
   }
 });

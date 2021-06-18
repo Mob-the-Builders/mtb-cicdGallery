@@ -15,12 +15,14 @@ html {
 
 .navbar {
   height: 10vh;
-  border: 1px solid black;
   position: sticky;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   &__logo{
     height: 100%;
+    border-radius: 50%;
   }
 }
 
@@ -29,13 +31,14 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .search-bar__container-flex{
   display: flex;
 }
 
-main section{
+.gallery__container-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2rem;
@@ -100,4 +103,10 @@ section:focus-within > .suggestion{
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+}
+
+.prev-next__container-flex{
+  display: flex;
+
+  margin-top: 2rem;
 }
