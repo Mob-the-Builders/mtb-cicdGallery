@@ -1,4 +1,4 @@
-xconst fetchImages = (query, id = 1) => fetch(`https://api.unsplash.com/search/photos?page=${id}&query=${query}&client_id=${process.env.accessKey}`)
+const fetchImages = (query, id = 1) => fetch(`https://api.unsplash.com/search/photos?page=${id}&query=${query}&client_id=${process.env.accessKey}`)
   .then(res => res.json())
   .then(res => {
     localStorage.setItem('currentPage', id);
