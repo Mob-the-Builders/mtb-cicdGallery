@@ -13,4 +13,3 @@ webpack.dev.js
 webpack.prod.js
 .env
 buildspec.yml
-/dist

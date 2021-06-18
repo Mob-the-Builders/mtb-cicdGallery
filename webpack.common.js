@@ -22,9 +22,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.accessKey': process.env.accessKey
-    })
   ],
 
   module: {
